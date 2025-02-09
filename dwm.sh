@@ -10,6 +10,9 @@ xinput set-prop 9 "libinput Accel Speed" -0.35 &
 # Keyboard
 setxkbmap -option caps:escape &
 
+# Notifications
+dunst &
+
 # Wallpaper
 nitrogen --restore &
 
@@ -19,7 +22,7 @@ picom --no-fading-openclose &
 #exec /home/autumn/Documents/dwm-6.5/dwm
 while true; do
     # Log stderror to a file 
-    $HOME/dwm/dwm 2> ~/.dwm.log
+    /home/autumn/dwm/dwm 2> ~/.dwm.log
     # No error logging
     #dwm >/dev/null 2>&1
 done

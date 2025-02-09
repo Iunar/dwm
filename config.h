@@ -1,5 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
+/* Theme based off this gtk theme: https://github.com/EliverLara/Nordic */
+
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int gappx     = 10;        /* gaps between windows */
@@ -9,15 +11,25 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "Mononoki Nerd Font:size=14" };
 static const char dmenufont[]       =   "Mononoki Nerd Font:size=14";
 
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
-/*               fg         bg         border   */
+/* Custom Colors (Nordic) */
+static const char col_gray1[]       = "#2e3440";
+static const char col_gray2[]       = "#3b4252";
+static const char col_gray3[]       = "#434b5e";
+static const char col_gray4[]       = "#e5eaf0";
+static const char col_cyan[]        = "#80a1c0";
+static const char col_white[]       = "#e5eaf0";
+
+static const char col_teal[]        = "#e5eaf0";
+static const char col_red[]         = "#e5eaf0";
+static const char col_orange[]      = "#e5eaf0";
+static const char col_yellow[]      = "#e5eaf0";
+static const char col_green[]       = "#e5eaf0";
+static const char col_purple[]      = "#e5eaf0";
+
 static const char *colors[][3]      = {
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+/*               	 fg         bg         border   */
+	[SchemeNorm] = { col_white, col_gray1, col_gray2 },
+	[SchemeSel]  = { col_white, col_gray3, col_cyan  },
 };
 
 /* tagging */
@@ -32,6 +44,7 @@ static const Rule rules[] = {
 	{ "prismlauncher",      NULL,       NULL,       0,            1,           -1 },
 	{ "steam",    			NULL,       NULL,       1 << 8,       1,           -1 },
 	{ "[Float]",  			NULL,       NULL,       1 << 8,       1,           -1 }, // for developement
+	{ "feh",  				NULL,       NULL,       0,       1,           -1 },
 };
 
 /* layout(s) */
@@ -64,12 +77,16 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "kitty", NULL };
 static const char *file_managercmd[]  = { "thunar", NULL };
 static const char *color_pickercmd[]  = { "xcolor", "-s", NULL };
+static const char *color_printcmd[]  = { "flameshot", "gui", "-p", "/home/autumn/Pictures/Screenshots", NULL };
+static const char *color_printfullcmd[]  = { "flameshot", "full", "-p", "/home/autumn/Pictures/Screenshots", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_e,      spawn,          {.v = file_managercmd } },
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_x,      spawn,          {.v = color_pickercmd } },
+	{ 0,                       		XK_Print,  spawn,          {.v = color_printcmd } },
+	{ MODKEY,             			XK_Print,  spawn,          {.v = color_printfullcmd } },
 	{ MODKEY,					    XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
