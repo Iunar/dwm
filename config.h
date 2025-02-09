@@ -21,12 +21,12 @@ static const char col_gray4[]       = "#e5eaf0";
 static const char col_cyan[]        = "#80a1c0";
 static const char col_white[]       = "#e5eaf0";
 
-static const char col_teal[]        = "#e5eaf0";
-static const char col_red[]         = "#e5eaf0";
-static const char col_orange[]      = "#e5eaf0";
-static const char col_yellow[]      = "#e5eaf0";
-static const char col_green[]       = "#e5eaf0";
-static const char col_purple[]      = "#e5eaf0";
+static const char col_teal[]        = "#8fbbba";
+static const char col_red[]         = "#be616b";
+static const char col_orange[]      = "#cf876f";
+static const char col_yellow[]      = "#eacb8b";
+static const char col_green[]       = "#a3bd8d";
+static const char col_purple[]      = "#b38ead";
 
 static const char *colors[][3]      = {
 /*               	 fg         bg         border   */
@@ -44,9 +44,10 @@ static const Rule rules[] = {
 	 */
 	/* class      			instance    title       tags mask     isfloating   monitor */
 	{ "prismlauncher",      NULL,       NULL,       0,            1,           -1 },
-	{ "steam",    			NULL,       NULL,       1 << 8,       1,           -1 },
-	{ "[Float]",  			NULL,       NULL,       1 << 8,       1,           -1 }, // for developement
-	{ "feh",  				NULL,       NULL,       0,       1,           -1 },
+	{ "steam",    			NULL,       NULL,       0,       	  1,           -1 },
+	{ "[Float]",  			NULL,       "[Float]",  0,       	  1,           -1 }, // for developement
+	{ "feh",  				NULL,       NULL,       0,       	  1,           -1 },
+	{ "Zathura",  			NULL,       NULL,       0,       	  1,           -1 },
 };
 
 /* layout(s) */
