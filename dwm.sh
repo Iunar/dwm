@@ -19,6 +19,12 @@ nitrogen --restore &
 # Compositor
 picom --no-fading-openclose &
 
+# DWM
+while true; do
+	xsetroot -name "|  $(date +'%l:%M%p') |   $(date +'%b%e') |   $(pamixer --get-volume)% |"
+	sleep 1s
+done &
+
 #exec /home/autumn/Documents/dwm-6.5/dwm
 while true; do
     # Log stderror to a file 
