@@ -2,6 +2,8 @@
 
 /* Theme based off this gtk theme: https://github.com/EliverLara/Nordic */
 
+#include <X11/XF86keysym.h>
+
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int gappx     = 10;        /* gaps between windows */
@@ -76,17 +78,27 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "kitty", NULL };
 static const char *file_managercmd[]  = { "thunar", NULL };
-static const char *color_pickercmd[]  = { "xcolor", "-s", NULL };
-static const char *color_printcmd[]  = { "flameshot", "gui", "-p", "/home/autumn/Pictures/Screenshots", NULL };
-static const char *color_printfullcmd[]  = { "flameshot", "full", "-p", "/home/autumn/Pictures/Screenshots", NULL };
+static const char *pickercmd[]  = { "xcolor", "-s", NULL };
+static const char *printcmd[]  = { "flameshot", "gui", "-p", "/home/autumn/Pictures/Screenshots", NULL };
+static const char *printfullcmd[]  = { "flameshot", "full", "-p", "/home/autumn/Pictures/Screenshots", NULL };
+
+static const char *playpausecmd []   = { "playerctl", "play-pause", NULL };
+static const char *volumeupcmd[]     = { "pamixer",   "-i", "5", NULL };
+static const char *volumedowncmd[]   = { "pamixer",   "-d", "5", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_e,      spawn,          {.v = file_managercmd } },
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
-	{ MODKEY,                       XK_x,      spawn,          {.v = color_pickercmd } },
-	{ 0,                       		XK_Print,  spawn,          {.v = color_printcmd } },
-	{ MODKEY,             			XK_Print,  spawn,          {.v = color_printfullcmd } },
+	{ MODKEY,                       XK_x,      spawn,          {.v = pickercmd } },
+	{ 0,                       		XK_Print,  spawn,          {.v = printcmd } },
+	{ MODKEY,             			XK_Print,  spawn,          {.v = printfullcmd } },
+
+	/* Audio */
+	{ 0,             				XF86XK_AudioPlay,  spawn,  {.v = playpausecmd } },
+	{ MODKEY,             			XK_Page_Up,    spawn,  {.v = volumeupcmd } },
+	{ MODKEY,             			XK_Page_Down,  spawn,  {.v = volumedowncmd } },
+
 	{ MODKEY,					    XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
