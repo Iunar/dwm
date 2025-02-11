@@ -3,12 +3,15 @@
 # Resolution
 xrandr --output DP-2 --mode 1920x1080 --rate 240 &
 
+# Keyboard and mouse settings
+kbm.sh &
+
 # Mouse
-xinput set-prop 9 "libinput Accel Profile Enabled" 0 1 0 &
-xinput set-prop 9 "libinput Accel Speed" -0.35 &
+# xinput set-prop 9 "libinput Accel Profile Enabled" 0 1 0 &
+# xinput set-prop 9 "libinput Accel Speed" -0.35 &
 
 # Keyboard
-setxkbmap -option caps:escape &
+# setxkbmap -option caps:escape &
 
 # Notifications
 dunst &

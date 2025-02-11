@@ -86,6 +86,7 @@ static const char *printfullcmd[]  = { "flameshot", "full", "-p", "/home/autumn/
 static const char *playpausecmd []   = { "playerctl", "play-pause", NULL };
 static const char *volumeupcmd[]     = { "pamixer",   "-i", "5", NULL };
 static const char *volumedowncmd[]   = { "pamixer",   "-d", "5", NULL };
+static const char *peripherals[]   = { "/home/autumn/dwm/kbm.sh", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -99,6 +100,9 @@ static const Key keys[] = {
 	{ 0,             				XF86XK_AudioPlay,  spawn,  {.v = playpausecmd } },
 	{ MODKEY,             			XK_Page_Up,    spawn,  {.v = volumeupcmd } },
 	{ MODKEY,             			XK_Page_Down,  spawn,  {.v = volumedowncmd } },
+
+	/* Rerun keyboard and mouse script */
+	{ MODKEY,             			XK_p,  spawn,  {.v = peripherals } },
 
 	{ MODKEY,					    XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
