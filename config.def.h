@@ -1,25 +1,25 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int snap      = 0;        /* snap pixel */
-static const unsigned int gappih    = 0;        /* horiz inner gap between windows */
-static const unsigned int gappiv    = 0;        /* vert inner gap between windows */
+static const unsigned int gappih    = 12;        /* horiz inner gap between windows */
+static const unsigned int gappiv    = 12;        /* vert inner gap between windows */
 static const unsigned int gappoh    = 20;       /* horiz outer gap between windows and screen edge */
 static const unsigned int gappov    = 20;       /* vert outer gap between windows and screen edge */
 static       int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
-static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Hack Nerd Font:size=11" };
-static const char dmenufont[]       = "Hack Nerd Font:size=11";
-static unsigned int baralpha        = 64;
+static const int topbar             = 0;        /* 0 means bottom bar */
+static const char *fonts[]          = { "Maple Mono NF:size=11" };
+static const char dmenufont[]       = "Maple Mono NF:size=11";
+static unsigned int baralpha        = 255;
 static unsigned int borderalpha     = OPAQUE;
-static char normbgcolor[]           = "#222222";
-static char normbordercolor[]       = "#444444";
-static char normfgcolor[]           = "#bbbbbb";
-static char selfgcolor[]            = "#eeeeee";
-static char selbordercolor[]        = "#005577";
-static char selbgcolor[]            = "#005577";
+static char normbgcolor[]           = "#161616";
+static char normbordercolor[]       = "#161616";
+static char normfgcolor[]           = "#FAFAFA";
+static char selfgcolor[]            = "#FAFAFA";
+static char selbordercolor[]        = "#61538D";
+static char selbgcolor[]            = "#161616";
 static char *colors[][3] = {
        /*               fg           bg           border   */
        [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
@@ -50,10 +50,10 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 
  static const Layout layouts[] = {
     /* symbol     arrange function */
+    { "[@]",      spiral },
     { "[\\]",     dwindle },
     { "[]=",      tile },    /* first entry is default */
     { "[M]",      monocle },
-    { "[@]",      spiral },
     { "H[]",      deck },
     { "TTT",      bstack },
     { "===",      bstackhoriz },
@@ -81,7 +81,7 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selfgcolor, NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "kitty", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
